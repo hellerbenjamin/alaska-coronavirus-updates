@@ -13,9 +13,8 @@
 <script>
 export default {
   name: 'App',
-
-  data: () => ({
-    //
-  }),
+  created() {
+    document.title = 'Alaska Coronavirus'
+  },
 }
 </script>

@@ -1,18 +1,50 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <v-card>
+    <v-card-title>Alaska Coronavirus Quick Data</v-card-title>
+    <v-card-text>
+      <p>Total Cases {{ alaska.cases }}</p>
+      <p>Active Cases {{ alaska.active }}</p>
+      <p>Recovered {{ alaska.recovered }}</p>
+      <p>New Cases today {{ alaska.todayCases }}</p>
+      <p>Total Deaths {{ alaska.deaths }}</p>
+      <p>Today's Deaths {{ alaska.todayDeaths }}</p>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+const novelcovid = require('novelcovid')
 
 export default {
-  name: "home",
-  components: {
-    HelloWorld
-  }
-};
+  name: 'Home',
+  data() {
+    return {
+      states: '',
+      alaska: {},
+    }
+  },
+  created() {
+    this.getData()
+  },
+  methods: {
+    async getData() {
+      this.states = await novelcovid.getState()
+      this.processData()
+    },
+
+    processData() {
+      for (let i = 0; i < this.states.length; i++) {
+        if ('Alaska' === this.states[i].state) {
+          console.log(this.states[i].state)
+          this.alaska = this.states[i]
+        }
+      }
+    },
+  },
+}
 </script>
+<style lang="scss">
+p {
+  font-size: 20px;
+}
+</style>

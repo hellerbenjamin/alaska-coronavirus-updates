@@ -35,7 +35,6 @@ export default {
     processData() {
       for (let i = 0; i < this.states.length; i++) {
         if ('Alaska' === this.states[i].state) {
-          console.log(this.states[i].state)
           this.alaska = this.states[i]
         }
       }

@@ -40,7 +40,12 @@ export default {
   },
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
+#quick-data {
+  background: #e6e6e6;
+  font-family: 'Encode Sans', sans-serif;
+}
+
 h3 {
   margin-bottom: 1em;
 }

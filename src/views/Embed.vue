@@ -1,6 +1,6 @@
 <template>
   <div id="quick-data">
-    <h3>Alaska Coronavirus Quick Data</h3>
+    <p><strong>Alaska Coronavirus Live Statistics</strong></p>
     <p>Total Cases {{ alaska.cases }}</p>
     <p>Active Cases {{ alaska.active }}</p>
     <p>Recovered {{ alaska.recovered }}</p>
@@ -51,9 +51,9 @@ h3 {
 }
 
 p {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1em;
-  margin: 0;
+  margin-bottom: 0.5em;
   padding: 0;
 }
 </style>
